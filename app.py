@@ -1,6 +1,7 @@
 from csv import DictReader, DictWriter
 from dataclasses import fields
 from datetime import datetime
+import sys
 import requests
 from win10toast import ToastNotifier
 
@@ -37,3 +38,4 @@ if __name__=="__main__":
     row = {"IP ADDRESS":get_ip_address(),DATE_FORMAT:str(datetime.now())[:10]}
     toast = ToastNotifier()
     toast.show_toast("IP NOTIFIER",write_ip_to_file(row) + f"\nIP is {get_ip_address()}",duration=20)
+    sys.exit(0)
